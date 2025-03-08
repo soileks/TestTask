@@ -12,8 +12,9 @@ import io.netty.handler.codec.string.StringEncoder;
 
 import java.util.Scanner;
 import io.netty.channel.socket.SocketChannel;
+import lombok.extern.slf4j.Slf4j;
 
-
+@Slf4j
 public class VotingClient {
     private static final String HOST = "localhost";
     private static final int PORT = 8080;

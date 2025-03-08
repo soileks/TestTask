@@ -1,11 +1,23 @@
-<configuration>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+    <appender name="file" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="hibernate-starter.log"/>
+
+        <param name="append" value="true"/>
+        <param name="maxFileSize" value="10MB"/>
+        <param name="maxBackuoIndex" value="10"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="conversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss,SSS}] %p [%c: %L] %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="ALL"/>
+        </filter>
     </appender>
 
-    <root level="INFO">
-        <appender-ref ref="STDOUT" />
+    <root>
+        <level value="info"/>
+        <appender-ref ref="file"/>
     </root>
-</configuration>
+</log4j:configuration>
